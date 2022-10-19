@@ -19,7 +19,9 @@ public class GlqlApplication {
 	@CrossOrigin(origins = "http://localhost:3001")
 	Book get() {
 		Book b = new Book("7", "Book7", 1, "3");
-		senderService.sendMessage();
+		// Thread t = new Thread(senderService);
+		// t.start();
+		senderService.run();
 		return b;
 	}
 
