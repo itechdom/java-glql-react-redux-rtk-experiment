@@ -2,8 +2,11 @@ import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
+import { useGetBookByIdQuery } from './features/api/apiSlice';
 
 function App() {
+  const { data, isLoading, error } = useGetBookByIdQuery('test');
+  console.log(data, isLoading, error);
   return (
     <div className="App">
       <header className="App-header">
