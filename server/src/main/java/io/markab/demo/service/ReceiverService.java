@@ -6,8 +6,15 @@ import io.markab.demo.model.Book;
 
 @Service
 @RabbitListener(queues = "spring-boot")
-public class ReceiverService {
+public class ReceiverService implements Runnable{
     public void receiveMessage(Book book) {
         System.out.println("Received <" + book.toString() + ">");
+    }
+    @Override
+    public void run() {
+        // TODO Auto-generated method stub
+        Book.booksChangeable.remove(0);
+        System.out.println(Thread.currentThread().getName());
+        System.out.println(Book.booksChangeable.toString() + "----" + Thread.currentThread().getName());
     }
 }

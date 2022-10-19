@@ -23,19 +23,23 @@ public class SenderService implements Runnable {
     public void sendMessage(Book book) {
         // TODO Auto-generated method stub
         template.convertAndSend("spring-boot-exchange", "foo.bar.#", book);
-        // System.out.println(Thread.currentThread().getName());
-        // System.out.println("Sending message...");
-        // try {
-        //     Thread.sleep(5000);
-        // } catch (InterruptedException e) {
-        //     // TODO Auto-generated catch block
-        //     e.printStackTrace();
-        // }
+
     }
 
     @Override
     public void run() {
-
+        Book.booksChangeable.add(new Book("hello", "BOOKStat", 0, "10"));
+        System.out.println(Thread.currentThread().getName());
+        System.out.println(Book.booksChangeable.toString() + "----" + Thread.currentThread().getName());
+        System.out.println("Sending message...");
+        try {
+            Thread.sleep(5000);
+            Book.booksChangeable.remove(0);
+            Book.booksChangeable.add(0, new Book("added", "added", 100, "added"));
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
 }

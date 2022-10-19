@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import io.markab.demo.model.Book;
+import io.markab.demo.service.ReceiverService;
 import io.markab.demo.service.SenderService;
 
 @SpringBootApplication
@@ -16,13 +17,25 @@ public class GlqlApplication {
 	@Autowired
 	SenderService senderService;
 
+	@Autowired
+	ReceiverService receiverService;
+
 	@GetMapping("/")
 	@CrossOrigin(origins = "http://localhost:3001")
 	Book get() {
 		Book b = new Book("7", "Book7", 1, "3");
-		// Thread t = new Thread(senderService);
-		// t.start();
+		Thread t = new Thread(senderService);
+		t.start();
 		senderService.sendMessage(b);
+		return b;
+	}
+
+	@GetMapping("/remove")
+	@CrossOrigin(origins = "http://localhost:3001")
+	Book removeBook() {
+		Book b = new Book("7", "Book7", 1, "3");
+		Thread t = new Thread(receiverService);
+		t.start();
 		return b;
 	}
 
