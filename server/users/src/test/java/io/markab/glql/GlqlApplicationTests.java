@@ -1,10 +1,10 @@
-package io.markab.demo;
+package io.markab.glql;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+class GlqlApplicationTests {
 
 	@Test
 	void contextLoads() {
