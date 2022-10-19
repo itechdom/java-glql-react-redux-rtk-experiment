@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 public class GlqlApplication {
+
 	@GetMapping("/")
 	String all() {
-		return "hello";
+		return "howdy there !";
 	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(GlqlApplication.class, args);
 	}
