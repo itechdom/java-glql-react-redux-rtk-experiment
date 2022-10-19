@@ -1,4 +1,5 @@
 package io.markab.demo;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,7 +22,7 @@ public class GlqlApplication {
 		Book b = new Book("7", "Book7", 1, "3");
 		// Thread t = new Thread(senderService);
 		// t.start();
-		senderService.run();
+		senderService.sendMessage(b);
 		return b;
 	}
 

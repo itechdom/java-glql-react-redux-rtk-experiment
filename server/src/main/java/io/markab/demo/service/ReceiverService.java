@@ -1,12 +1,13 @@
 package io.markab.demo.service;
-import java.util.concurrent.CountDownLatch;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
+
+import io.markab.demo.model.Book;
 
 @Service
 @RabbitListener(queues = "spring-boot")
 public class ReceiverService {
-    public void receiveMessage(String message) {
-        System.out.println("Received <" + message + ">");
+    public void receiveMessage(Book book) {
+        System.out.println("Received <" + book.toString() + ">");
     }
 }

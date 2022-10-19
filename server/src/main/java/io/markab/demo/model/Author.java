@@ -1,9 +1,10 @@
 package io.markab.demo.model;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
-public class Author {
+public class Author implements Serializable {
 
     private String id;
     private String firstName;

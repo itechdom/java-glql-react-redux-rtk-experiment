@@ -1,8 +1,10 @@
 package io.markab.demo.model;
+
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
-public class Book {
+public class Book implements Serializable {
 
     private String id;
     private String name;
@@ -31,5 +33,9 @@ public class Book {
 
     public String getAuthorId() {
         return authorId;
+    }
+
+    public String toString() {
+        return this.name + this.authorId;
     }
 }
