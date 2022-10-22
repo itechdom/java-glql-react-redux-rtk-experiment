@@ -6,9 +6,12 @@ import io.markab.demo.model.Book;
 
 @Service
 @RabbitListener(queues = "spring-boot")
-public class ReceiverService implements Runnable{
+public class ReceiverService extends ParentService implements Runnable{
     public void receiveMessage(Book book) {
         System.out.println("Received <" + book.toString() + ">");
+    }
+    public void fail(){
+        
     }
     @Override
     public void run() {

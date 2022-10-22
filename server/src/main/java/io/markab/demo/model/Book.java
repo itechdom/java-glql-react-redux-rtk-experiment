@@ -48,4 +48,11 @@ public class Book implements Serializable {
     public String toString() {
         return this.name + this.authorId;
     }
+
+    @Override
+    protected void finalize() throws Throwable {
+        // TODO Auto-generated method stub
+        super.finalize();
+        System.out.println("finalized");
+    }
 }
