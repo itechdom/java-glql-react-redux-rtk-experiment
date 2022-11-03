@@ -3,6 +3,10 @@ type Query {
   counterById(name: String): Counter
 }
 
+type Mutation{
+  addBook(bookInput: BookInput): Book
+}
+
 type Book {
   id: ID
   name: String
@@ -18,5 +22,9 @@ type Author {
 }
 
 type Counter {
+  name: String
+}
+
+input BookInput{
   name: String
 }
