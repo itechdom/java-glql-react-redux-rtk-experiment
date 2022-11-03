@@ -13,6 +13,7 @@
 	<name>demo</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
+	    <jdk.version>8</jdk.version>
 		<java.version>8</java.version>
 	</properties>
 	<dependencies>
