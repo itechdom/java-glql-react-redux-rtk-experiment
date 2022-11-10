@@ -1,4 +1,5 @@
 type Query {
+  books: [Book]
   bookById(id: ID): Book
   counterById(name: String): Counter
 }

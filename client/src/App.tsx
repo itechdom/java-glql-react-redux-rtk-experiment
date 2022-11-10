@@ -1,12 +1,17 @@
 import React from 'react';
+import { gql, useQuery } from '@apollo/client';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
 import { useGetBookByIdQuery } from './features/api/apiSlice';
+import { GET_BOOKS_BY, GET_BOOKS_BY_ID } from './graphql/queries';
 
 function App() {
-  const { data, isLoading, error } = useGetBookByIdQuery('test');
-  console.log(data, isLoading, error);
+  // const { data, isLoading, error } = useGetBookByIdQuery('test');
+  const { loading, error, data } = useQuery(GET_BOOKS_BY_ID, { variables: { id: "book-1" } });
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
+  console.log(data, loading, error);
   return (
     <div className="App">
       <header className="App-header">
