@@ -1,5 +1,4 @@
 import { useQuery } from '@apollo/client';
-import { useEffect, useMemo, useState } from 'react';
 import { GET_BOOKS_BY_ID } from '../queries';
 
 interface Book {
