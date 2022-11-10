@@ -11,6 +11,10 @@ export const GET_BOOKS_BY_ID = gql`
     bookById(id: $id) {
       id
       name
+      author{
+        firstName
+        lastName
+      }
     }
   }
 `;
