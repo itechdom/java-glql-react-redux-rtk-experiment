@@ -10,14 +10,15 @@ import {
   selectCount,
 } from './counterSlice';
 import styles from './Counter.module.css';
+import { useBookById } from '../../graphql/api/books';
 
 export function Counter() {
   const count = useAppSelector(selectCount);
   const dispatch = useAppDispatch();
   const [incrementAmount, setIncrementAmount] = useState('2');
-
   const incrementValue = Number(incrementAmount) || 0;
-
+  const { book, error, loading } = useBookById("book-2");
+  console.log(book, error, loading, "counter");
   return (
     <div>
       <div className={styles.row}>
